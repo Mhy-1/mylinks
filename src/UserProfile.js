@@ -58,8 +58,10 @@ function UserProfile() {
             {socialLinks.map((link, index) => (
               <div className="links" key={index}>
                 <a className="link" href={link.url} target="_blank" rel="noopener noreferrer">
-                  <img src={link.iconUrl} alt={link.name} style={{ width: '1.5em', height: '1.5em', verticalAlign: 'middle', marginRight: '1em' }} />
-                  {link.name}
+                  <div>
+                    <img src={link.iconUrl} alt={link.name} style={{ width: '1.5em', height: '1.5em', verticalAlign: 'middle', marginRight: '1em' }} />
+                    {link.name}
+                  </div>
                 </a>
               </div>
             ))}

@@ -112,7 +112,7 @@ body {
 .rowlinks a{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 80%;
 }
 
@@ -123,7 +123,10 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+.link div {
+    text-align: justify;
+    width: 40%;
+}
 .link {
     position: relative;
     background-color: var(--accentColor);
@@ -133,7 +136,7 @@ body {
     font-size: 1rem;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 7px;
     padding: 14px;
