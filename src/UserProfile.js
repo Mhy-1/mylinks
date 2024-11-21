@@ -42,8 +42,8 @@ function UserProfile() {
       </div>
 
       <div id="userName">
-        <p>{userName}</p>
-        <p>{profession}</p>
+        <p className='pname'>{userName}</p>
+        <p className='ppro'>{profession}</p>
         <p className="bio">{bio}</p>
       </div>
 
@@ -52,22 +52,30 @@ function UserProfile() {
         {morphTexts.join(' | ')}
       </div>
 
-      <div className="flexc">
-        <div className="coverbox">
-          <div className="rowlinks">
-            {socialLinks.map((link, index) => (
-              <div className="links" key={index}>
-                <a className="link" href={link.url} target="_blank" rel="noopener noreferrer">
-                  <div>
-                    <img src={link.iconUrl} alt={link.name} style={{ width: '1.5em', height: '1.5em', verticalAlign: 'middle', marginRight: '1em' }} />
-                    {link.name}
-                  </div>
-                </a>
+      <div className="social-links-container">
+        {socialLinks.map((link, index) => (
+          <div
+            className="social-link"
+            key={index}
+            style={{ animationDelay: `${index * 0.2}s` }}
+          >
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link-anchor"
+            >
+              <div className="social-icon">
+                <img src={link.iconUrl} alt={link.name} />
               </div>
-            ))}
+              <div className="social-text">{link.name}</div>
+            </a>
           </div>
-        </div>
+        ))}
       </div>
+
+
+
     </div>
   );
 }

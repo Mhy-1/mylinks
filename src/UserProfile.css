@@ -8,9 +8,9 @@
     --textColor: #ffffff;
     --font: 'Karla', sans-serif;
     --font2: 'Noto Sans Mono', monospace;
-    --delay: .3s;
     --heading: #C0C0C0;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -18,26 +18,100 @@ body {
     font-family: var(--font);
     background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%);
     background-image: url('bg1.jpg');
-    opacity: 0;
-    animation: 1s ease-out var(--delay) 1 transitionAnimation;
     /* duration/timing-function/delay/iterations/name */
     animation-fill-mode: forwards;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    overflow: hidden;
 }
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:400,700&display=swap');
 
-:root {
-    --bgColor: #0F2034;
-    --bgColor2: #0C1B2E;
-    --accentColor: #000000;
-    --textColor: #ffffff;
-    --font: 'Karla', sans-serif;
-    --font2: 'Noto Sans Mono', monospace;
-    --heading: #C0C0C0;
+@keyframes popAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
+
+#profilePicture {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popAnimation 0.6s ease-out forwards;
+    animation-delay: 0s;
+    /* يبدأ أول عنصر */
+}
+
+#userName {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popAnimation 0.6s ease-out forwards;
+    animation-delay: 0.2s;
+    /* ثاني عنصر */
+}
+
+.morph-text {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popAnimation 0.6s ease-out forwards;
+    animation-delay: 0.4s;
+    /* ثالث عنصر */
+}
+
+.social-link {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popAnimation 0.6s ease-out forwards;
+}
+
+.social-link:nth-child(1) {
+    animation-delay: 0.6s;
+    /* يبدأ بعد العناصر السابقة */
+}
+
+.social-link:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.social-link:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.social-link:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.social-link:nth-child(5) {
+    animation-delay: 1.4s;
+}
+
+.social-link:nth-child(6) {
+    animation-delay: 1.6s;
+}
+
+.social-link:nth-child(7) {
+    animation-delay: 1.8s;
+}
+
+.social-link:nth-child(8) {
+    animation-delay: 2s;
+}
+
+.social-link:nth-child(9) {
+    animation-delay: 2.2s;
+}
+
+
+/* أضف المزيد حسب عدد العناصر */
 
 .morph-text {
     color: var(--textColor);
@@ -47,37 +121,26 @@ body {
     margin: 10px 0;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-family: var(--font);
-    background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%);
-    background-image: url('bg1.jpg');
-    opacity: 0;
-    animation: 1s ease-out .3s 1 transitionAnimation;
-    animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+.user-profile {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #profilePicture,
 #profilePicture img {
     position: relative;
-    width: 96px;
-    height: 96px;
+    width: 150px;
+    height: 150px;
     display: block;
     margin: 40px auto 20px;
-    border-radius: 25px 0px 25px 0px;
+    border-radius: 25px;
     -webkit-tap-highlight-color: transparent;
 }
 
 #userName {
     color: var(--textColor);
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 0.5;
     margin-top: 70px;
     display: block;
     font-family: var(--font);
@@ -86,11 +149,41 @@ body {
     text-decoration: none;
 }
 
-.flexc {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.pname {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 0.5;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
 }
+
+.ppro {
+    color: var(--textColor);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 0.5;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.bio {
+    color: var(--textColor);
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 0.5;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+
 
 .coverbox {
     display: flex;
@@ -109,7 +202,7 @@ body {
     width: 100%;
 }
 
-.rowlinks a{
+.rowlinks a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,10 +216,12 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 .link div {
     text-align: justify;
     width: 40%;
 }
+
 .link {
     position: relative;
     background-color: var(--accentColor);
@@ -168,6 +263,7 @@ body {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -178,11 +274,59 @@ body {
     from {
         transform: translateY(0px);
     }
+
     to {
         transform: translateY(-2000px);
     }
 }
 
+.social-links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.6rem;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.social-link-anchor {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.social-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.social-text {
+    width: -webkit-fill-available;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333333;
+}
 
 /* credits: https://www.youtube.com/watch?v=aywzn9cf-_U */
 
@@ -239,4 +383,3 @@ body {
     background: transparent;
     box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff, 948px 1828px #fff, 1977px 1001px #fff, 1284px 1963px #fff, 656px 284px #fff, 1268px 1635px #fff, 1820px 598px #fff, 642px 1900px #fff, 296px 57px #fff, 921px 1620px #fff, 476px 1858px #fff, 658px 613px #fff, 1171px 1363px #fff, 1419px 283px #fff, 1037px 731px #fff, 503px 663px #fff, 1562px 463px #fff, 383px 1197px #fff, 1171px 1233px #fff, 876px 1768px #fff, 856px 1615px #fff, 1375px 1924px #fff, 1725px 918px #fff, 952px 119px #fff, 768px 1212px #fff, 992px 1462px #fff, 1929px 717px #fff, 1947px 755px #fff, 1818px 1123px #fff, 1896px 1672px #fff, 460px 198px #fff, 256px 271px #fff, 752px 544px #fff, 1222px 1859px #fff, 1851px 443px #fff, 313px 1858px #fff, 709px 446px #fff, 1546px 697px #fff, 674px 1155px #fff, 1112px 130px #fff, 355px 1790px #fff, 1496px 974px #fff, 1696px 480px #fff, 1316px 1265px #fff, 1645px 1063px #fff, 1182px 237px #fff, 427px 1582px #fff, 859px 253px #fff, 458px 939px #fff, 1517px 1644px #fff, 1943px 60px #fff, 212px 1650px #fff, 966px 1786px #fff, 473px 712px #fff, 130px 76px #fff, 1417px 1186px #fff, 909px 1580px #fff, 1913px 762px #fff, 204px 1143px #fff, 1998px 1057px #fff, 1468px 1301px #fff, 144px 1676px #fff, 21px 1601px #fff, 382px 1362px #fff, 912px 753px #fff, 1488px 1405px #fff, 802px 156px #fff, 174px 550px #fff, 338px 1366px #fff, 1197px 774px #fff, 602px 486px #fff, 682px 1877px #fff, 348px 1503px #fff, 407px 1139px #fff, 950px 1400px #fff, 922px 1139px #fff, 1697px 293px #fff, 1238px 1281px #fff, 1038px 1197px #fff, 376px 1889px #fff, 1255px 1680px #fff, 1008px 1316px #fff, 1538px 1447px #fff, 1186px 874px #fff, 1967px 640px #fff, 1341px 19px #fff, 29px 1732px #fff, 16px 1650px #fff, 1021px 1075px #fff, 723px 424px #fff, 1175px 41px #fff, 494px 1957px #fff, 1296px 431px #fff, 175px 1507px #fff, 831px 121px #fff, 498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
 }
-
